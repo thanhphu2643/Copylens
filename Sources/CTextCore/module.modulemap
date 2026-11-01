@@ -1,0 +1,5 @@
+module CTextCore {
+    header "text_core.h"
+    link "text_core"
+    export *
+}

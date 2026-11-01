@@ -1,0 +1,20 @@
+[package]
+name = "text_core"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+crate-type = ["staticlib"]
+
+[dependencies]
+# Stay below api-22: from there ort picks a power-saving device by default, which sends the
+# models to the Neural Engine. That means garbled text and the slow compile this engine avoids.
+ort = { version = "2.0.0-rc.15", default-features = false, features = ["std", "load-dynamic", "api-21"] }
+unicode-normalization = "0.1"
+
+[profile.release]
+lto = true
+panic = "abort"
+
+[dev-dependencies]
+png = "0.18.1"

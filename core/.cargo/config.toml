@@ -1,0 +1,2 @@
+[env]
+ORT_DYLIB_PATH = { value = "vendor/onnxruntime/libonnxruntime.dylib", relative = true }
